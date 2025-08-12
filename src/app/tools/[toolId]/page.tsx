@@ -22,6 +22,9 @@ export default function ToolPage({ params }: ToolPageProps) {
 
   // 直接渲染工具组件
   const ToolComponent = tool.component;
+  if (!ToolComponent) {
+    return notFound();
+  }
   const category = categories.find(c => c.id === tool.category);
 
   return (
