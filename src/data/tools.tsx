@@ -8,6 +8,8 @@ import ColorConverter from '@/components/tools/ColorConverter';
 import PasswordGenerator from '@/components/tools/PasswordGenerator';
 import JsonFormatter from '@/components/tools/JsonFormatter';
 import SqlFormatter from '@/components/tools/SqlFormatter';
+import QrCodeGenerater from '@/components/tools/QrCodeGenerater';
+import UnitConverter from '@/components/tools/UnitConverter';
 
 // 工具分类
 export const categories: ToolCategory[] = [
@@ -73,7 +75,9 @@ export const tools : Tool[] = [
     category: 'text',
     icon: <FiGrid />,
     stats: { usage: '986次', favorites: '7,312次' },
-    popular: true
+    popular: true,
+    // 使用QrCodeGenerator组件
+    component: QrCodeGenerater
   },
   { 
     id: "3", 
@@ -120,7 +124,9 @@ export const tools : Tool[] = [
     description: '长度、重量、体积、温度等多种单位之间的快速换算',
     category: 'calc',
     icon: <FiSliders />,
-    stats: { usage: '1,532次', favorites: '4,789次' }
+    stats: { usage: '1,532次', favorites: '4,789次' },
+    // 使用UnitConverter组件
+    component: UnitConverter
   },
   { 
     id: "7", 
