@@ -23,7 +23,7 @@ const Header = () => {
           {/* 桌面导航 */}
           <div className="desktop-nav">
           <Link href="/"><FiHome className="mr-1" /> 首页</Link>
-          <a href="/404"><FiTool className="mr-1" /> 所有工具</a>
+          <Link href="/#all-tool"><FiTool className="mr-1" /> 所有工具</Link>
           <a href="/404"><FiStar className="mr-1" /> 热门工具</a>
           <a href="/404"><FiHeart className="mr-1" /> 收藏</a>
           </div>
@@ -71,11 +71,11 @@ const Header = () => {
               }`} onClick={() => setMobileMenuOpen(false)}>
               <FiHome className="mr-3" /> 首页
           </Link>
-          <a href="#" className={`text-xl flex items-center py-3 ${
+          <Link href="/#all-tool" className={`text-xl flex items-center py-3 ${
               darkMode ? 'text-gray-100' : 'text-gray-800'
               }`} onClick={() => setMobileMenuOpen(false)}>
               <FiTool className="mr-3" /> 所有工具
-          </a>
+          </Link>
           <a href="#" className={`text-xl flex items-center py-3 ${
               darkMode ? 'text-gray-100' : 'text-gray-800'
               }`} onClick={() => setMobileMenuOpen(false)}>

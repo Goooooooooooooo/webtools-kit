@@ -117,7 +117,7 @@ export default function Home() {
       </section> */}
 
       {/* 工具分类 */}
-      <section className={`tool-categories ${darkMode ? 'dark' : ''}`}>
+      <section id='all-tool' className={`tool-categories ${darkMode ? 'dark' : ''}`}>
         <div className="container">
           <div className="section-header">
             <h2>工具分类</h2>
