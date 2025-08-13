@@ -167,7 +167,7 @@ export default function QRGeneratorPage() {
 
   return (
     <main className="container">
-      <div className={`grid grid-cols-1 lg:grid-cols-3 gap-6 ${darkMode ? 'dark-theme' : 'light-theme'}`}></div>
+      <div className={`grid grid-cols-1 lg:grid-cols-2 ${darkMode ? 'dark-theme' : 'light-theme'}`}></div>
         <div className="lg:col-span-2">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* 表单 */}
