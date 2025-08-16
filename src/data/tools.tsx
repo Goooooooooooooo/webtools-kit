@@ -10,6 +10,7 @@ import JsonFormatter from '@/components/tools/JsonFormatter';
 import SqlFormatter from '@/components/tools/SqlFormatter';
 import QrCodeGenerater from '@/components/tools/QrCodeGenerater';
 import UnitConverter from '@/components/tools/UnitConverter';
+import DateTimeConverter from '@/components/tools/DateTimeConverter';
 
 // 工具分类
 export const categories: ToolCategory[] = [
@@ -127,6 +128,16 @@ export const tools : Tool[] = [
     stats: { usage: '1,532次', favorites: '4,789次' },
     // 使用UnitConverter组件
     component: UnitConverter
+  },
+  { 
+    id: "12", 
+    name: 'Unix 时间戳转换', 
+    description: 'Unix时间戳与日期互转、Cron表达式示例',
+    category: 'dev',
+    icon: <FiSliders />,
+    stats: { usage: '1,532次', favorites: '4,789次' },
+    // 使用DateTimeConverter组件
+    component: DateTimeConverter
   },
   { 
     id: "7", 
