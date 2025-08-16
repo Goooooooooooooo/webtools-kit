@@ -11,6 +11,7 @@ import SqlFormatter from '@/components/tools/SqlFormatter';
 import QrCodeGenerater from '@/components/tools/QrCodeGenerater';
 import UnitConverter from '@/components/tools/UnitConverter';
 import DateTimeConverter from '@/components/tools/DateTimeConverter';
+import TestDataGenerator from '@/components/tools/TestDataGenerator';
 
 // 工具分类
 export const categories: ToolCategory[] = [
@@ -138,6 +139,16 @@ export const tools : Tool[] = [
     stats: { usage: '1,532次', favorites: '4,789次' },
     // 使用DateTimeConverter组件
     component: DateTimeConverter
+  },
+    { 
+    id: "13", 
+    name: '测试数据生成器', 
+    description: '快速生成测试数据，支持自定义字段类型和数量',
+    category: 'dev',
+    icon: <FiSliders />,
+    stats: { usage: '1,532次', favorites: '4,789次' },
+    // 使用TestDataGenerator组件
+    component: TestDataGenerator
   },
   { 
     id: "7", 
