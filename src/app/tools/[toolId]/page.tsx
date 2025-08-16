@@ -6,6 +6,7 @@ import { categories, tools } from '@/data/tools';
 import Header from '@/components/Header';
 import { useAppContext } from '@/context/AppContext';
 import React from 'react';
+import Link from 'next/link';
 
 interface ToolPageProps {
   params: Promise<{ toolId: string }>; // 使用 Promise 来处理异步参数
@@ -43,9 +44,13 @@ export default function ToolPage({ params }: ToolPageProps) {
               <h1 className={`text-3xl font-bold mb-1 tool-title ${darkMode ? 'dark' : ''}`}>{tool.name}</h1>
               <p className={`tool-desc ${darkMode ? 'dark' : ''}`}>{tool.description}</p>
               <div className="mt-2">
-                <span className={`text-sm px-3 py-1 w-20 category-btn ${category?.color} active`}>
+                <Link href={{
+                    pathname: '/',
+                    query: { tab: category?.id },
+                    hash: 'all-tool',
+                  }} className={`text-sm px-3 py-1 w-20 category-btn ${category?.color} active`}>
                   {category ? category.name : '未分类'}
-                </span>
+                </Link>
               </div>
             </div>
           </div>

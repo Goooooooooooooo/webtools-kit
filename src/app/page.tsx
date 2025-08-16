@@ -1,7 +1,7 @@
 // app/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiSearch } from 'react-icons/fi';
 
@@ -14,12 +14,18 @@ import { categories, tools } from '@/data/tools';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import { useAppContext } from '@/context/AppContext';
+import { useSearchParams } from 'next/navigation';
 
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const { darkMode } = useAppContext();
+
+  const searchParams = useSearchParams();
+  let tab = searchParams.get('tab');
+  tab = typeof tab === 'string' ? tab : 'all'; // Query 参数
+  const hash = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
 
   // 过滤工具
   const filteredTools = tools.filter(tool => {
@@ -28,6 +34,28 @@ export default function Home() {
                           tool.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // 滚动到指定元素
+  useEffect(() => {
+    if (hash) {
+      console.log(hash);
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [hash]);
+
+  // 使用 useMemo 优化性能
+  useMemo(() => {
+    console.log(tab);
+    // 如果 tab 存在且是有效的分类 ID，则设置为 activeCategory
+    // 否则默认设置为 'all'
+    console.log(categories.some(c => c.id === tab));
+    if (tab && categories.some(c => c.id === tab)) {
+      setActiveCategory(tab);
+    } else {
+      setActiveCategory('all');
+    }
+  }, [tab]);
 
   // 热门工具
   // const popularTools = tools.filter(tool => tool.popular);
